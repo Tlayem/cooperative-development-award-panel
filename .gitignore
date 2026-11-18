@@ -1,0 +1,6 @@
+.env
+*.token
+__pycache__/
+.pytest_cache/
+data/raw/usaspending/*.zip
+data/raw/usaspending/*.csv

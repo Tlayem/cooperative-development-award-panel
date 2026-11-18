@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use this dataset, please cite it as below."
+type: dataset
+title: "The Cooperative Development Award Panel: county-year by CFDA programme"
+version: "1.0.0"
+date-released: "2026-11-16"
+authors:
+  - family-names: "Adesiyan"
+    given-names: "Taiwo Fausiyat"
+    orcid: "https://orcid.org/0000-0002-2023-3624"
+    affiliation: "Middle Tennessee State University, Murfreesboro, Tennessee, USA"
+license: CC-BY-4.0
+repository-code: "https://github.com/Tlayem/cooperative-development-award-panel"
+doi: "10.5281/zenodo.24287714"
+keywords:
+  - cooperatives
+  - rural development
+  - USDA Rural Business-Cooperative Service
+  - Rural Cooperative Development Grant
+  - Socially Disadvantaged Groups Grant
+  - federal grants
+  - county panel
+  - USAspending

@@ -1,0 +1,20 @@
+# Limitations
+
+1. **The panel records obligations, not spending or impact.** Obligations are commitments recorded at award and modification. They are not outlays, and they say nothing about the cooperatives that were formed or helped.
+2. **Recipient county is not where the benefit lands.** RCDG grants fund cooperative development centres that serve whole states or regions. A centre's county receives the dollars in the `rec_` measures even when its clients are elsewhere. Use the `pop_` measures and the state table for questions about service areas. Treat county-level RCDG dollars as "where the centres are".
+3. **Place-of-performance reporting is uneven.** Older records often lack a scope or a county, and many awards report statewide performance. The share of dollars placed in a county by place of performance is in `stats.json`.
+4. **The data are a snapshot of a database that keeps changing.** Agencies correct, back-date and delete records. A download made on a different day will differ slightly, which is why each release's raw inputs are deposited.
+5. **Pre-FY2008 history is cut off.** Awards that began before FY2008 have their in-window actions counted, but not their start. `net_obligation` in the award file includes any earlier actions that appear in the download.
+6. **The programme definition changed.** The SDGG (10.871) was the Small Socially-Disadvantaged Producer Grant until it was renamed and its rules changed in 2022. Eligibility and award caps differ across the window.
+7. **County boundaries are fixed at 2020.** Codes for counties that were later split cannot be placed in one county, and neither can Connecticut's 2022 planning-region codes. Both stay out of the county panel and are reported in the state table. Panels built on 2022 or later boundaries need a crosswalk.
+8. **Dollars are nominal.** The panel does not deflate them. Users should deflate with the price index that suits their question.
+9. **10.771 is broader than its name, and the sub-programme tags are keyword-based.** USAspending files value-added producer grants, AgMRC, ATTRA and some Rural Energy for America awards under 10.771. The `subprogramme` tag separates them using the award description, which can mis-tag a vague description. Use the `core_` measures for co-op development as such.
+10. **The panel covers two listings only.** Value-Added Producer Grants (10.352), Agriculture Innovation Centers and cooperative-related loan guarantees are excluded by design.
+11. **Some records are aggregates.** Some early records are USAspending aggregate records ("MULTIPLE RECIPIENTS", one row per county). They carry dollars but no individual award or recipient. They are flagged and excluded from the award and recipient counts. The count is in `qa_report.txt`.
+12. **Awards are defined by their 10.771/10.871 actions.** USAspending's award-summary total can differ from the panel's award total in two cases:
+    - The award also has actions under another listing, almost always 10.352 Value-Added Producer Grants. In most cases a value-added grant was first filed under 10.771 and then corrected. Since v1.0.0 these actions are kept as corrections to the award (R14), so these awards now agree with USAspending.
+    - The award began before FY2008, so its base obligation falls outside the window.
+
+    Counts and dollar amounts for both cases are in `qa_report.txt`. The panel's national total matches the USAspending search-page total for the same filters.
+13. **County codes come from USAspending and can be wrong.** USAspending appears to assign counties from ZIP codes, so a recipient in a ZIP that straddles two counties can be placed in the wrong one. Spot checks found one such case (Duffield, VA: coded Lee, actually Scott). It is corrected in `data/reference/county_overrides.csv`. Other cases may exist that the spot checks did not find.
+14. **Recipient identity is approximate.** DUNS was replaced by UEI in April 2022, and the same organisation can appear under both. `rec_recipients` counts distinct identifiers, so it may slightly overcount organisations across that break.

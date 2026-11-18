@@ -1,0 +1,91 @@
+{
+  "version": "1.0.0",
+  "n_frame_counties": 3143,
+  "transaction_files": [
+    "Assistance_PrimeTransactions_2026-11-13_H20M45S26_1.csv",
+    "Assistance_PrimeTransactions_2026-11-16_H00M37S31_1.csv"
+  ],
+  "n_raw_rows": 4728,
+  "listing_counts_raw": {
+    "10.352": 2464,
+    "10.771": 2021,
+    "10.871": 243
+  },
+  "n_in_programmes": 2264,
+  "n_other_listing_corrections": 89,
+  "n_delete_flag_dropped": 0,
+  "n_duplicate_transactions_dropped": 0,
+  "n_missing_award_key": 0,
+  "other_listing_correction_amount": -5365694.27,
+  "total_listing_only_all_years": 291435578.88,
+  "fy_counts_all": {
+    "2008": 184,
+    "2009": 81,
+    "2010": 323,
+    "2011": 110,
+    "2012": 516,
+    "2013": 282,
+    "2014": 76,
+    "2015": 71,
+    "2016": 55,
+    "2017": 63,
+    "2018": 109,
+    "2019": 67,
+    "2020": 77,
+    "2021": 65,
+    "2022": 74,
+    "2023": 64,
+    "2024": 73,
+    "2025": 23,
+    "2026": 40
+  },
+  "recipient_county_codes_repaired": 109,
+  "place_of_performance_county_codes_repaired": 0,
+  "rec_county_name_fallback": 0,
+  "pop_county_name_fallback": 0,
+  "n_awards_by_subprogramme": {
+    "VALUE_ADDED": 810,
+    "COOP_CENTRE": 675,
+    "SDGG": 173,
+    "MINORITY_PRODUCER": 139,
+    "AGMRC": 19,
+    "REAP": 16,
+    "ATTRA": 8,
+    "COOP_RESEARCH": 3
+  },
+  "n_fully_deobligated": 53,
+  "county_overrides_applied": [
+    "ASST_NON_20254880645515_012 rec 51105->51169",
+    "ASST_NON_20264880647267_012 rec 51105->51169"
+  ],
+  "n_awards": 1843,
+  "n_awards_by_programme": {
+    "RCDG": 1670,
+    "SDGG": 173
+  },
+  "n_awards_mixed_listing": 104,
+  "rec_county_status": {
+    "matched": 1816,
+    "territory": 24,
+    "verified_override": 2,
+    "non_us": 1
+  },
+  "pop_county_status": {
+    "matched": 1709,
+    "missing": 112,
+    "territory": 21,
+    "multi_county_or_statewide": 1
+  },
+  "pop_scope_counts": {
+    "(blank)": 1111,
+    "COUNTY-WIDE": 700,
+    "SINGLE ZIP CODE": 31,
+    "FOREIGN": 1
+  },
+  "n_transactions_in_window": 2353,
+  "n_transactions_outside_window": 0,
+  "n_panel_rows": 119434,
+  "total_obligations_in_window": 286069884.61,
+  "total_obligations_rec_counties": 282821679.31,
+  "total_obligations_pop_counties": 262845574.31
+}

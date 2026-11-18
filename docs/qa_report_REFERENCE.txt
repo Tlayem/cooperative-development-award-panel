@@ -1,0 +1,142 @@
+Cooperative Development Award Panel v1.0.0 — QA report
+============================================================
+
+1. Row counts
+   raw transaction rows ............ 4,728
+   in 10.771 / 10.871 .............. 2,264
+   other-listing corrections kept .. 89
+   delete-flag rows dropped ........ 0
+   duplicate transactions dropped .. 0
+   missing award key dropped ....... 0
+   transactions in FY2008-FY2026 ... 2,353
+   transactions outside window ..... 0
+   awards .......................... 1,843  {'RCDG': 1670, 'SDGG': 173}
+   awards new in window ............ 1,585
+   awards with >1 listing .......... 104
+   panel rows ...................... 119,434
+
+   Listing counts in raw files (other listings are dropped):
+     10.352: 2,464
+     10.771: 2,021
+     10.871: 243
+
+2. County assignment (awards)
+   recipient county:
+     matched: 1,816
+     territory: 24
+     verified_override: 2
+     non_us: 1
+   place-of-performance county:
+     matched: 1,709
+     missing: 112
+     territory: 21
+     multi_county_or_statewide: 1
+   place-of-performance scope:
+     (blank): 1,111
+     COUNTY-WIDE: 700
+     SINGLE ZIP CODE: 31
+     FOREIGN: 1
+
+   Recipient county unmatched (0), first 25:
+
+   Recipient county code vs reported county name: 27 disagreements of 1,816 (code kept; DC is reported as 'District of Columbia')
+     ASST_NON_RO48565  21012_012 | JETERSVILLE, VA | code 51007 = AMELIA COUNTY | reported NOTTOWAY
+     ASST_NON_RO49174  25411_012 | TYRONZA, AR | code 05111 = POINSETT COUNTY | reported MISSISSIPPI
+     ASST_NON_BP1393888_012 | WASHINGTON, VA | code 51013 = ARLINGTON COUNTY | reported DISTRICT OF COLUMBIA
+     ASST_NON_BP1713774_012 | EDINBURG, TX | code 48215 = HIDALGO COUNTY | reported CAMERON
+     ASST_NON_BP1714962_012 | WASHINGTON, VA | code 51013 = ARLINGTON COUNTY | reported DISTRICT OF COLUMBIA
+     ASST_NON_BP1714991_012 | WASHINGTON, VA | code 51013 = ARLINGTON COUNTY | reported DISTRICT OF COLUMBIA
+     ASST_NON_BP1856116_012 | EDINBURG, TX | code 48215 = HIDALGO COUNTY | reported CAMERON
+
+   Aggregate records (ASST_AGG, many individual recipients in one county row): 148 ($8,518,150); kept in obligations, not counted as new awards or recipients
+
+   Verified county overrides (R11, data/reference/county_overrides.csv):
+     ASST_NON_20254880645515_012 rec 51105->51169
+     ASST_NON_20264880647267_012 rec 51105->51169
+[PASS] every county override applied
+
+   Fully deobligated awards (net $0, not counted as new): 53
+
+3. Checks
+[PASS] panel is balanced (counties x FY x programmes)
+[PASS] state table total = in-window transaction total
+[PASS] county + not-in-county = total (recipient basis)
+[PASS] county + not-in-county = total (place-of-performance basis)
+[PASS] 10.771/10.871 actions alone within 2% of USAspending search-page benchmark ($291.44m, 2026-11-13) — pipeline $291.44m
+[INFO] other-listing corrections (R14): 89 actions, $-5,365,694; panel total after corrections $286.07m
+[PASS] recipient basis puts >= 95% of dollars in a county — 98.9%
+[INFO] place-of-performance basis puts 91.9% of dollars in a county
+[INFO] county-years with net negative obligations (deobligations): 171
+[INFO] awards above $1m net: 11 (expected for ATTRA/AgMRC; check any COOP_CENTRE/SDGG ones)
+     ASST_NON_8394942636163291_012 | ATTRA | THE NATIONAL CENTER FOR APPROPRIATE TECHNOLOGY INC | $1,290,900
+     ASST_NON_8394942636163292_012 | ATTRA | THE NATIONAL CENTER FOR APPROPRIATE TECHNOLOGY INC | $1,290,900
+     ASST_NON_1397864519108701_012 | ATTRA | THE NATIONAL CENTER FOR APPROPRIATE TECHNOLOGY INC | $1,110,432
+     ASST_NON_BP698124_012 | ATTRA | THE NATIONAL CENTER FOR APPROPRIATE TECHNOLOGY INC | $1,471,568
+     ASST_NON_BP847159_012 | ATTRA | THE NATIONAL CENTER FOR APPROPRIATE TECHNOLOGY INC | $2,800,000
+     ASST_NON_BP1131271_012 | ATTRA | THE NATIONAL CENTER FOR APPROPRIATE TECHNOLOGY INC | $2,250,000
+     ASST_NON_BP1357839_012 | ATTRA | THE NATIONAL CENTER FOR APPROPRIATE TECHNOLOGY INC | $2,086,732
+     ASST_NON_GLSX0002011380_012 | AGMRC | IOWA STATE UNIVERSITY OF SCIENCE AND TECHNOLOGY | $1,129,986
+     ASST_NON_GLSX0002012082_012 | AGMRC | IOWA STATE UNIVERSITY OF SCIENCE AND TECHNOLOGY | $1,786,208
+     ASST_NON_GLSX0002425369_012 | AGMRC | IOWA STATE UNIVERSITY OF SCIENCE AND TECHNOLOGY | $1,341,111
+     ASST_NON_CLSS00000117966_012 | AGMRC | IOWA STATE UNIVERSITY OF SCIENCE AND TECHNOLOGY | $1,055,082
+[PASS] no core co-op development award above $1m net
+
+   Sub-programme tags (awards):
+     VALUE_ADDED: 810
+     COOP_CENTRE: 675
+     SDGG: 173
+     MINORITY_PRODUCER: 139
+     AGMRC: 19
+     REAP: 16
+     ATTRA: 8
+     COOP_RESEARCH: 3
+   Most common descriptions tagged COOP_CENTRE (review the keyword rules against these):
+      636  RURAL COOPERATIVE DEVELOPMENT GRANTS
+       22  PERSISTENT POVERTY RCDG - RURAL COOPERATIVE DEVELOPMENT GRANTS
+        2  RURAL COMMUNITIES ACROSS THE NORTHEAST FACE SIGNIFICANT CHALLENGES IN SUSTAINING SMALL BUS
+        1  (blank)
+        1  RURAL AMERICAN COMMUNITIES FACE POPULATION LOSS, GROCERY STORE CLOSURES, INADEQUATE AND EX
+        1  RURAL COMMUNITIES HAVE SIGNIFICANT ECONOMIC ASSETS AND ENTREPRENEURIAL ENERGY, BUT THEY AL
+        1  THE KEYSTONE DEVELOPMENT CENTER, A 501(C)3 NONPROFIT WHOSE MISSION IS TO SUSTAIN COMMUNITI
+        1  MANY RURAL COMMUNITIES IN NORTH DAKOTA ARE AT RISK OF LOSING ESSENTIAL SERVICES THAT KEEP 
+        1  APPALACHIAN HARVEST: SOUTHWEST VIRGINIA AGRIBUSINESS SUCCESS CENTER
+        1  THE EFFICACY, RESILIENCE, AND POWER OF COOPERATIVE BUSINESSES ARE TIME-PROVEN FACTS, YET T
+        1  THE SOUTH/CENTRAL RURAL COOPERATIVE CENTER (SCRCC OR THE CENTER), OPERATED BY THE UNIVERSI
+        1  VIRGINIA FAIRS WILL IMPROVE THE ECONOMIC CONDITION OF RURAL AREAS TO START, EXPAND, OR IMP
+        1  SMALL BUSINESSES ARE THE BACKBONE OF RURAL ECONOMIES, ACCOUNTING FOR MORE THAN 56% OF EMPL
+        1  HOWEVER, STARTING AND SUSTAINING A COOPERATIVE TAKES MORE THAN A GOOD IDEA. GROUPS NEED RE
+        1  THE KEYSTONE DEVELOPMENT CENTER (KDC) MISSION IS TO SUSTAIN COMMUNITIES, ECONOMIES, AND RE
+        1  THE ROCKY MOUNTAIN FARMERS UNION (RMFU), A MEMBERSHIP-BASED ORGANIZATION REPRESENTING MORE
+        1  RURAL COMMUNITIES FACE INTERCONNECTED ECONOMIC CHALLENGES, INCLUDING LIMITED ACCESS TO HEA
+        1  THE ABUNDANCE OF AGRICULTURAL LAND IN THE REGION PROVIDES THE PERFECT SETTING TO PROVIDE S
+[PASS] awards found in award-summary file — 100.0%
+[INFO] award total = summary total for 97.0% of matched awards. The panel uses transactions (10.771/10.871 plus R14 corrections on the same awards).
+       56 awards differ; summary minus transactions = $7,182,419.
+       0 of them still differ despite carrying 10.352 actions ($0).
+       56 began before FY2008, so their base obligation is outside the window ($7,182,419).
+       First 10:
+       ASST_NON_1924922256149981_012 | transactions $-168,940 | summary $13,060
+       ASST_NON_6695215808135681_012 | transactions $-250 | summary $74,162
+       ASST_NON_2162434353161581_012 | transactions $-17,500 | summary $0
+       ASST_NON_6963425110155581_012 | transactions $-178 | summary $99,822
+       ASST_NON_9715593112141681_012 | transactions $-12,066 | summary $287,934
+       ASST_NON_2330540313184581_012 | transactions $-8,488 | summary $3,912
+       ASST_NON_3889215715124981_012 | transactions $-445 | summary $113,795
+       ASST_NON_1830412751144681_012 | transactions $-87,500 | summary $0
+       ASST_NON_2040324817187881_012 | transactions $-4,641 | summary $170,359
+       ASST_NON_6192463739133681_012 | transactions $-50,000 | summary $0
+
+4. Spot checks — open each permalink and confirm recipient, county and amount
+   [largest award] ASST_NON_BP847159_012 | RCDG | THE NATIONAL CENTER FOR APPROPRIATE TECHNOLOGY INC | BUTTE, MT | rec county 30093 (matched) | pop 30093 (matched) | $2,800,000 | FY2010 | https://www.usaspending.gov/award/ASST_NON_BP847159_012/
+   [earliest award] ASST_NON_8394942636163291_012 | RCDG | THE NATIONAL CENTER FOR APPROPRIATE TECHNOLOGY INC | BUTTE, MT | rec county 30093 (matched) | pop nan (missing) | $1,290,900 | FY2008 | https://www.usaspending.gov/award/ASST_NON_8394942636163291_012/
+   [latest award] ASST_NON_20264880647267_012 | RCDG | APPALACHIAN SUSTAINABLE DEVELOPMENT | DUFFIELD, VA | rec county 51169 (verified_override) | pop 51105 (matched) | $733,054 | FY2026 | https://www.usaspending.gov/award/ASST_NON_20264880647267_012/
+   [statewide performance] ASST_NON_CLSS00000058174_012 | RCDG | ROBERT J SIGRAH | KOSRAE, nan | rec county nan (non_us) | pop nan (multi_county_or_statewide) | $1,033 | FY2018 | https://www.usaspending.gov/award/ASST_NON_CLSS00000058174_012/
+   [Tennessee award] ASST_NON_5493232443091491_012 | RCDG | ROCK N ROLL FARMS | COLLEGE GROVE, TN | rec county 47187 (matched) | pop nan (missing) | $190,668 | FY2008 | https://www.usaspending.gov/award/ASST_NON_5493232443091491_012/
+   [SDGG award] ASST_NON_GLSX0002773115_012 | SDGG | WINROCK INTERNATIONAL INSTITUTE FOR AGRICULTURAL DEVELOPMENT | LITTLE ROCK, AR | rec county 05119 (matched) | pop 05119 (matched) | $0 | FY2024 | https://www.usaspending.gov/award/ASST_NON_GLSX0002773115_012/
+   [random (seed 20261113)] ASST_NON_1732601309141491_012 | RCDG | MINNESOTA VALLEY ALFALFA PRODUCERS | WILLMAR, MN | rec county 27067 (matched) | pop 27067 (matched) | $32,029 | FY2008 | https://www.usaspending.gov/award/ASST_NON_1732601309141491_012/
+   [random (seed 20261113)] ASST_AGG_12E400GLS3109310.771040171  12X1900_012 | RCDG | MULTIPLE RECIPIENTS | nan, NE | rec county 31093 (matched) | pop 31093 (matched) | $-5,506 | FY2011 | https://www.usaspending.gov/award/ASST_AGG_12E400GLS3109310.771040171%20%2012X1900_012/
+   [random (seed 20261113)] ASST_NON_1251511021139491_012 | RCDG | ALGOMA LUMBER COMPANY, INC. | ALGOMA, WI | rec county 55061 (matched) | pop nan (missing) | $300,000 | FY2008 | https://www.usaspending.gov/award/ASST_NON_1251511021139491_012/
+   [random (seed 20261113)] ASST_NON_BP1365228_012 | RCDG | THREE SISTERS FARM & GARDEN LLC | KAMAS, UT | rec county 49043 (matched) | pop 49043 (matched) | $0 | FY2013 | https://www.usaspending.gov/award/ASST_NON_BP1365228_012/
+   [random (seed 20261113)] ASST_NON_GLSX0002671014_012 | SDGG | DINE COMMUNITY DEVELOPMENT CORPORATION, INC. | CHINLE, AZ | rec county 04001 (matched) | pop 04001 (matched) | $95,000 | FY2022 | https://www.usaspending.gov/award/ASST_NON_GLSX0002671014_012/
+
+QA failures: 0 []
